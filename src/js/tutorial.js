@@ -166,13 +166,13 @@ export const TutorialManager = {
         document.getElementById('powerupBar')?.classList.add('tutorial-highlight');
         break;
       case 'showAdventureTab':
-        document.querySelector('[data-tab="adventure"]')?.classList.add('tutorial-highlight');
+        document.querySelector('.app-header')?.classList.add('tutorial-highlight');
         break;
       case 'showDailyTab':
-        document.querySelector('[data-tab="daily"]')?.classList.add('tutorial-highlight');
+        document.querySelector('.app-header')?.classList.add('tutorial-highlight');
         break;
       case 'startGame':
-        document.getElementById('board')?.classList.add('tutorial-highlight');
+        document.querySelector('.board-wrapper')?.classList.add('tutorial-highlight');
         break;
     }
   },

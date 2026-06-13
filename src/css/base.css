@@ -1118,8 +1118,6 @@ kbd {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -1127,13 +1125,17 @@ kbd {
 }
 
 .tutorial-panel {
-  position: relative;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   padding: 28px 32px;
   border-radius: var(--radius-xl);
   max-width: 420px;
+  width: 90%;
   border: 1px solid var(--accent-dim);
   box-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 0 30px var(--accent-glow);
   z-index: 1010;
