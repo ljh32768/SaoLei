@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="现代化扫雷游戏 - 经典模式、冒险模式、每日挑战">
+<title>扫雷 · 现代版</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/themes.css">
+<link rel="stylesheet" href="css/animations.css">
+</head>
+<body class="theme-modern">
+
+<div class="app">
+  <!-- 顶部导航 -->
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-icon">💣</span>
+      <span class="brand-text">扫雷</span>
+      <span class="brand-sub">现代版</span>
+    </div>
+    <nav class="nav-tabs" role="tablist">
+      <button class="nav-tab active" data-tab="classic" role="tab" aria-selected="true">经典</button>
+      <button class="nav-tab" data-tab="adventure" role="tab" aria-selected="false">冒险</button>
+      <button class="nav-tab" data-tab="daily" role="tab" aria-selected="false">每日</button>
+      <button class="nav-tab" data-tab="stats" role="tab" aria-selected="false">统计</button>
+      <button class="nav-tab" data-tab="settings" role="tab" aria-selected="false">设置</button>
+    </nav>
+  </header>
+
+  <main class="app-main">
+    <!-- ========== 经典模式 ========== -->
+    <section class="panel active" id="panel-classic" role="tabpanel">
+      <!-- 游戏状态栏 -->
+      <div class="game-info">
+        <div class="info-card" id="mineCard">
+          <div class="info-icon">💣</div>
+          <div class="info-value" id="mineCount">10</div>
+          <div class="info-label">剩余地雷</div>
+        </div>
+        <div class="info-card" id="timeCard">
+          <div class="info-icon">⏱️</div>
+          <div class="info-value" id="timer">0</div>
+          <div class="info-label">用时</div>
+        </div>
+        <div class="info-card" id="comboCard">
+          <div class="info-icon">🔥</div>
+          <div class="info-value" id="comboDisplay">0</div>
+          <div class="info-label">连击</div>
+        </div>
+      </div>
+      <div class="health-bar" id="healthBar" style="display:none;"></div>
+      </div>
+
+      <!-- 控制栏 -->
+      <div class="control-bar">
+        <div class="control-group">
+          <div class="select-wrapper">
+            <select id="difficulty" class="select-modern">
+              <option value="easy">初级 (9×9, 10雷)</option>
+              <option value="medium">中级 (16×16, 40雷)</option>
+              <option value="hard">高级 (16×30, 99雷)</option>
+              <option value="custom">自定义</option>
+            </select>
+          </div>
+          <button id="reset" class="btn btn-primary" title="重新开始 (R)">
+            <span class="btn-icon">🔄</span><span class="btn-text">重开</span>
+          </button>
+          <button id="pauseBtn" class="btn btn-secondary" title="暂停/继续 (P)">
+            <span class="btn-icon">⏸️</span>
+          </button>
+          <button id="hexMode" class="btn btn-secondary" title="六边形模式">
+            <span class="btn-icon">🔶</span>
+          </button>
+          <button id="tutorialBtn" class="btn btn-ghost" title="新手教程">
+            <span class="btn-icon">📚</span><span class="btn-text">教程</span>
+          </button>
+        </div>
+
+        <div class="custom-diff" id="customDiff" style="display:none;">
+          <div class="input-group">
+            <label for="customRows">行</label>
+            <input type="number" id="customRows" min="5" max="30" value="12">
+          </div>
+          <div class="input-group">
+            <label for="customCols">列</label>
+            <input type="number" id="customCols" min="5" max="50" value="12">
+          </div>
+          <div class="input-group">
+            <label for="customMines">雷</label>
+            <input type="number" id="customMines" min="1" max="500" value="20">
+          </div>
+        </div>
+      </div>
+
+      <!-- 道具栏 -->
+      <div class="powerup-bar" id="powerupBar"></div>
+
+      <!-- 消息提示 -->
+      <div class="msg" id="msg"></div>
+
+      <!-- 棋盘区域 -->
+      <div class="board-wrapper board-container">
+        <div class="board" id="board"></div>
+        <canvas id="particleCanvas" class="particle-canvas"></canvas>
+      </div>
+
+      <!-- 快捷键提示 -->
+      <div class="shortcuts-hint">
+        <span class="hint-item"><kbd>左键</kbd> 揭开</span>
+        <span class="hint-sep">·</span>
+        <span class="hint-item"><kbd>右键</kbd> 标记</span>
+        <span class="hint-sep">·</span>
+        <span class="hint-item"><kbd>双击数字</kbd> 快速揭开</span>
+        <span class="hint-sep">·</span>
+        <span class="hint-item"><kbd>R</kbd> 重开</span>
+        <span class="hint-sep">·</span>
+        <span class="hint-item"><kbd>P</kbd> 暂停</span>
+      </div>
+    </section>
+
+    <!-- ========== 冒险模式 ========== -->
+    <section class="panel" id="panel-adventure" role="tabpanel">
+      <div class="level-info card">
+        <h2 id="adventureTitle">🗺️ 冒险之旅</h2>
+        <p id="adventureDesc">穿越地下迷宫，击败所有 Boss！</p>
+      </div>
+      <div class="game-info compact">
+        <div class="info-card">
+          <div class="info-icon">📍</div>
+          <div class="info-value" id="advLevel">1-1</div>
+          <div class="info-label">关卡</div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">❤️</div>
+          <div class="info-value" id="advHealth">3</div>
+          <div class="info-label">生命</div>
+        </div>
+      </div>
+      <div class="adventure-map" id="adventureMap"></div>
+      <div class="control-bar center">
+        <button id="startAdventure" class="btn btn-primary">开始冒险</button>
+        <button id="resetAdventure" class="btn btn-danger">重置进度</button>
+      </div>
+    </section>
+
+    <!-- ========== 每日挑战 ========== -->
+    <section class="panel" id="panel-daily" role="tabpanel">
+      <div class="daily-challenge card" id="dailyChallenge">
+        <div class="daily-icon">📅</div>
+        <h2>每日挑战</h2>
+        <p class="daily-date" id="dailyDate"></p>
+        <p class="daily-desc" id="dailyDesc"></p>
+        <button id="playDaily" class="btn btn-primary">开始挑战</button>
+      </div>
+      <div class="info-card inline">
+        <div class="info-icon">🎯</div>
+        <div class="info-label" id="dailyAttempts">今日尝试：0/3</div>
+      </div>
+    </section>
+
+    <!-- ========== 统计数据 ========== -->
+    <section class="panel" id="panel-stats" role="tabpanel">
+      <div class="stats-panel card">
+        <h2>📊 游戏统计</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">🎮</div>
+            <div class="stat-value" id="statGames">0</div>
+            <div class="stat-label">总游戏数</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🏆</div>
+            <div class="stat-value" id="statWins">0</div>
+            <div class="stat-label">胜利次数</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">📈</div>
+            <div class="stat-value" id="statWinRate">0%</div>
+            <div class="stat-label">胜率</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">⚡</div>
+            <div class="stat-value" id="statBestTime">-</div>
+            <div class="stat-label">最佳时间</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🔥</div>
+            <div class="stat-value" id="statCombo">0</div>
+            <div class="stat-label">最高连击</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">⛏️</div>
+            <div class="stat-value" id="statMines">0</div>
+            <div class="stat-label">累计揭雷</div>
+          </div>
+        </div>
+      </div>
+      <div class="stats-panel card">
+        <h3>🏅 各难度最佳</h3>
+        <div class="stats-grid three">
+          <div class="stat-card">
+            <div class="stat-icon">🌱</div>
+            <div class="stat-value" id="bestEasy">-</div>
+            <div class="stat-label">初级</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🌿</div>
+            <div class="stat-value" id="bestMedium">-</div>
+            <div class="stat-label">中级</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🌳</div>
+            <div class="stat-value" id="bestHard">-</div>
+            <div class="stat-label">高级</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 设置 ========== -->
+    <section class="panel" id="panel-settings" role="tabpanel">
+      <div class="settings-panel card">
+        <h2>🎨 主题选择</h2>
+        <div class="theme-selector" id="themeSelector"></div>
+      </div>
+      <div class="settings-panel card">
+        <h2>⚙️ 游戏设置</h2>
+        <div class="settings-list">
+          <label class="toggle-row">
+            <span class="toggle-label">
+              <span class="toggle-icon">🔊</span>
+              <span class="toggle-text">启用音效</span>
+            </span>
+            <input type="checkbox" id="soundToggle" class="toggle-input" checked>
+            <span class="toggle-switch"></span>
+          </label>
+          <label class="toggle-row">
+            <span class="toggle-label">
+              <span class="toggle-icon">✨</span>
+              <span class="toggle-text">粒子效果</span>
+            </span>
+            <input type="checkbox" id="particleToggle" class="toggle-input" checked>
+            <span class="toggle-switch"></span>
+          </label>
+          <label class="toggle-row">
+            <span class="toggle-label">
+              <span class="toggle-icon">🚩</span>
+              <span class="toggle-text">自动插旗</span>
+            </span>
+            <input type="checkbox" id="autoFlagToggle" class="toggle-input">
+            <span class="toggle-switch"></span>
+          </label>
+        </div>
+        <div class="volume-control">
+          <label class="volume-label">音量</label>
+          <input type="range" id="volumeSlider" min="0" max="100" value="50">
+          <span class="volume-value" id="volumeValue">50%</span>
+        </div>
+      </div>
+      <div class="settings-panel card">
+        <h2>💾 数据管理</h2>
+        <div class="data-actions">
+          <button id="exportData" class="btn btn-secondary">📤 导出数据</button>
+          <label class="btn btn-secondary file-label">
+            <input type="file" id="importData" accept=".json" hidden>
+            📥 导入数据
+          </label>
+          <button id="clearStats" class="btn btn-danger">🗑️ 清除统计</button>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- 成就弹窗容器 -->
+<div id="achievementPopup" class="achievement-popup" style="display: none;"></div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

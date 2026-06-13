@@ -1,0 +1,289 @@
+/* 扫雷现代版 - 动画效果 */
+
+/* ===== 面板进入 ===== */
+@keyframes panel-in {
+  0% { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== 消息动画 ===== */
+@keyframes msg-bounce {
+  0% { transform: scale(0.8); opacity: 0; }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes msg-shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-4px); }
+  40%, 80% { transform: translateX(4px); }
+}
+
+/* ===== 格子动画 ===== */
+@keyframes cell-reveal {
+  0% { transform: scale(0.9); opacity: 0.5; }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes flag-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+@keyframes mine-explode {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.2); }
+  60% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+@keyframes hint-glow {
+  0% { box-shadow: 0 0 4px var(--info); border-color: var(--info); }
+  100% { box-shadow: 0 0 16px var(--info), 0 0 4px var(--info); border-color: var(--info); }
+}
+
+/* ===== 道具动画 ===== */
+@keyframes powerup-pulse {
+  0% { box-shadow: 0 0 8px var(--accent-glow); }
+  100% { box-shadow: 0 0 20px var(--accent-glow), 0 0 8px var(--accent-glow); }
+}
+
+/* ===== 成就弹窗 ===== */
+@keyframes achievement-slide-in {
+  0% { transform: translateX(120%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes achievement-slide-out {
+  0% { transform: translateX(0); opacity: 1; }
+  100% { transform: translateX(120%); opacity: 0; }
+}
+
+@keyframes achievement-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ===== 暂停遮罩 ===== */
+@keyframes pause-fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* ===== 冒险节点 ===== */
+@keyframes node-pulse {
+  0% { box-shadow: 0 0 8px var(--accent-glow); transform: scale(1); }
+  100% { box-shadow: 0 0 20px var(--accent-glow); transform: scale(1.03); }
+}
+
+/* ===== 教程高亮 ===== */
+@keyframes tutorial-pulse {
+  0%, 100% { box-shadow: 0 0 0 3px var(--accent-dim), 0 0 12px var(--accent-glow); }
+  50% { box-shadow: 0 0 0 4px var(--accent-dim), 0 0 24px var(--accent-glow); }
+}
+
+/* ===== 棋盘震动 ===== */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+  20%, 40%, 60%, 80% { transform: translateX(4px); }
+}
+
+.board-shake {
+  animation: shake 0.4s ease-in-out;
+}
+
+/* ===== 通用淡入淡出 ===== */
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fade-out {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.fade-in { animation: fade-in 0.3s ease-out forwards; }
+.fade-out { animation: fade-out 0.3s ease-in forwards; }
+
+/* ===== 粒子动画 ===== */
+@keyframes particle-fade {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0); }
+}
+
+.particle-fade {
+  animation: particle-fade 0.5s ease-out forwards;
+}
+
+/* ===== 声纳扫描 ===== */
+@keyframes sonar-scan {
+  0% { transform: scale(0); opacity: 1; border-width: 3px; }
+  100% { transform: scale(3); opacity: 0; border-width: 0; }
+}
+
+.sonar-ripple {
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid var(--danger);
+  animation: sonar-scan 2s ease-out forwards;
+}
+
+/* ===== 护盾 ===== */
+@keyframes shield-activate {
+  0% { box-shadow: 0 0 0 transparent; transform: scale(1); }
+  50% { box-shadow: 0 0 30px var(--info); transform: scale(1.08); }
+  100% { box-shadow: 0 0 10px var(--info-dim, rgba(79,195,247,0.3)); transform: scale(1); }
+}
+
+.shield-active {
+  animation: shield-activate 0.5s ease-out forwards;
+}
+
+/* ===== 炸弹 ===== */
+@keyframes bomb-explode {
+  0% { transform: scale(0.5); opacity: 1; background: radial-gradient(circle, #ff6b35 0%, transparent 70%); }
+  50% { transform: scale(2); opacity: 0.8; background: radial-gradient(circle, #ffcc00 0%, #ff6b35 50%, transparent 70%); }
+  100% { transform: scale(3); opacity: 0; background: radial-gradient(circle, transparent 0%, transparent 100%); }
+}
+
+.bomb-explode {
+  animation: bomb-explode 0.4s ease-out forwards;
+}
+
+/* ===== 揭示闪烁 ===== */
+@keyframes reveal-flash {
+  0% { background-color: transparent; }
+  50% { background-color: rgba(121, 192, 255, 0.3); }
+  100% { background-color: transparent; }
+}
+
+.reveal-flash {
+  animation: reveal-flash 0.3s ease-out forwards;
+}
+
+/* ===== 连击火花 ===== */
+@keyframes combo-spark {
+  0% { opacity: 1; transform: translate(0, 0) scale(1); }
+  100% { opacity: 0; transform: translate(var(--tx, 50px), var(--ty, -50px)) scale(0.5); }
+}
+
+.combo-spark {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #ffcc00;
+  border-radius: 50%;
+  animation: combo-spark 0.6s ease-out forwards;
+}
+
+/* ===== 胜利彩带 ===== */
+@keyframes confetti-fall {
+  0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  animation: confetti-fall 3s ease-in forwards;
+}
+
+/* ===== 时间警告 ===== */
+@keyframes time-warning {
+  0%, 100% { color: var(--text-primary); }
+  50% { color: var(--danger); }
+}
+
+.time-warning {
+  animation: time-warning 1s ease-in-out infinite;
+}
+
+/* ===== 生命减少 ===== */
+@keyframes heart-break {
+  0% { transform: scale(1) rotate(0deg); opacity: 1; }
+  50% { transform: scale(1.2) rotate(-10deg); opacity: 0.8; }
+  100% { transform: scale(0.5) rotate(-20deg); opacity: 0; }
+}
+
+.heart-break {
+  animation: heart-break 0.5s ease-out forwards;
+}
+
+/* ===== 统计更新 ===== */
+@keyframes stat-update {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); color: var(--accent); }
+  100% { transform: scale(1); }
+}
+
+.stat-update {
+  animation: stat-update 0.3s ease-out;
+}
+
+/* ===== 道具掉落 ===== */
+@keyframes powerup-drop {
+  0% { transform: translateY(-40px) rotate(0deg); opacity: 0; }
+  60% { transform: translateY(4px) rotate(200deg); opacity: 1; }
+  100% { transform: translateY(0) rotate(360deg); opacity: 1; }
+}
+
+.powerup-drop {
+  animation: powerup-drop 0.5s ease-out forwards;
+}
+
+/* ===== 节点完成 ===== */
+@keyframes node-complete {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.25); }
+  50% { transform: scale(1.1); }
+  75% { transform: scale(1.18); }
+  100% { transform: scale(1); }
+}
+
+.node-complete {
+  animation: node-complete 0.5s ease-out forwards;
+}
+
+/* ===== 连击显示 ===== */
+@keyframes combo-pop {
+  0% { transform: scale(0.5); opacity: 0; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.combo-pop {
+  animation: combo-pop 0.3s ease-out forwards;
+}
+
+/* ===== 庆祝 ===== */
+@keyframes celebrate {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.04); }
+}
+
+/* ===== 波浪揭示 ===== */
+@keyframes wave-reveal {
+  0% { opacity: 0; transform: scale(0.85) translateY(-4px); }
+  50% { opacity: 0.6; transform: scale(0.95) translateY(-2px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.cell.wave-reveal {
+  animation: wave-reveal 0.3s ease-out forwards;
+}
+
+/* ===== 生命心 ===== */
+.health-heart {
+  font-size: 1.2em;
+  transition: all 0.3s ease;
+}
+
+.health-heart.lost {
+  filter: grayscale(100%);
+  opacity: 0.25;
+}

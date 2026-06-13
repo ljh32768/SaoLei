@@ -1,0 +1,386 @@
+/* 扫雷现代版 - 主题系统 */
+
+/* ===== 现代主题（默认） ===== */
+.theme-modern {
+  --bg-1: #0d1117;
+  --bg-2: #161b22;
+  --bg-3: #1c2128;
+  --bg-elevated: rgba(22, 27, 34, 0.8);
+  --bg-hover: rgba(255, 255, 255, 0.05);
+  --bg-input: rgba(13, 17, 23, 0.6);
+  --board-bg: rgba(10, 14, 20, 0.6);
+
+  --glass-bg: rgba(22, 27, 34, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.08);
+
+  --text-primary: #f0f6fc;
+  --text-secondary: #b0b8c4;
+  --text-muted: #6e7681;
+
+  --accent: #f7786b;
+  --accent-dim: rgba(247, 120, 107, 0.4);
+  --accent-subtle: rgba(247, 120, 107, 0.12);
+  --accent-gradient: linear-gradient(145deg, #f7786b, #e85d50);
+  --accent-glow: rgba(247, 120, 107, 0.25);
+
+  --success: #7ee787;
+  --success-bg: rgba(126, 231, 135, 0.08);
+  --success-border: rgba(126, 231, 135, 0.2);
+  --danger: #ff7b72;
+  --danger-bg: rgba(255, 123, 114, 0.08);
+  --danger-border: rgba(255, 123, 114, 0.2);
+  --danger-dim: rgba(255, 123, 114, 0.4);
+  --info: #79c0ff;
+  --info-bg: rgba(121, 192, 255, 0.08);
+  --info-border: rgba(121, 192, 255, 0.2);
+
+  --cell-hidden-bg: linear-gradient(145deg, #1c2128, #21262d);
+  --cell-hidden-border: rgba(255, 255, 255, 0.08);
+  --cell-hover-bg: linear-gradient(145deg, #21262d, #2a3038);
+  --cell-revealed-bg: #0d1117;
+  --cell-revealed-border: rgba(255, 255, 255, 0.04);
+  --cell-flagged-bg: linear-gradient(145deg, #3d1a5c, #4a2575);
+  --cell-flagged-border: rgba(138, 92, 192, 0.4);
+  --cell-mine-bg: #2a0a0a;
+
+  --num-1: #79c0ff; --num-1-glow: rgba(121, 192, 255, 0.4);
+  --num-2: #56d364; --num-2-glow: rgba(86, 211, 100, 0.4);
+  --num-3: #ff7b72; --num-3-glow: rgba(255, 123, 114, 0.4);
+  --num-4: #d2a8ff; --num-4-glow: rgba(210, 168, 255, 0.4);
+  --num-5: #ffa657; --num-5-glow: rgba(255, 166, 87, 0.4);
+  --num-6: #39c5cf; --num-6-glow: rgba(57, 197, 207, 0.4);
+  --num-7: #ff9ece; --num-7-glow: rgba(255, 158, 206, 0.4);
+  --num-8: #b0b8c4; --num-8-glow: rgba(176, 184, 196, 0.4);
+}
+
+.theme-modern .theme-btn { background: linear-gradient(135deg, #0d1117, #1c2128, #21262d); }
+
+/* ===== 经典主题 ===== */
+.theme-classic {
+  --bg-1: #0f0f23;
+  --bg-2: #1a1a3e;
+  --bg-3: #16213e;
+  --bg-elevated: rgba(22, 33, 62, 0.8);
+  --bg-hover: rgba(255, 255, 255, 0.05);
+  --bg-input: rgba(15, 15, 35, 0.6);
+  --board-bg: rgba(10, 10, 30, 0.6);
+
+  --glass-bg: rgba(22, 33, 62, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.08);
+
+  --text-primary: #e0e0f0;
+  --text-secondary: #a0a8c0;
+  --text-muted: #6a7090;
+
+  --accent: #e94560;
+  --accent-dim: rgba(233, 69, 96, 0.4);
+  --accent-subtle: rgba(233, 69, 96, 0.12);
+  --accent-gradient: linear-gradient(145deg, #e94560, #c0395b);
+  --accent-glow: rgba(233, 69, 96, 0.25);
+
+  --success: #81c784;
+  --success-bg: rgba(129, 199, 132, 0.08);
+  --success-border: rgba(129, 199, 132, 0.2);
+  --danger: #e94560;
+  --danger-bg: rgba(233, 69, 96, 0.08);
+  --danger-border: rgba(233, 69, 96, 0.2);
+  --danger-dim: rgba(233, 69, 96, 0.4);
+  --info: #4fc3f7;
+  --info-bg: rgba(79, 195, 247, 0.08);
+  --info-border: rgba(79, 195, 247, 0.2);
+
+  --cell-hidden-bg: linear-gradient(145deg, #1e2a4a, #2a3a5e);
+  --cell-hidden-border: rgba(100, 120, 180, 0.2);
+  --cell-hover-bg: linear-gradient(145deg, #1a1a4e, #222266);
+  --cell-revealed-bg: #111133;
+  --cell-revealed-border: rgba(255, 255, 255, 0.04);
+  --cell-flagged-bg: linear-gradient(145deg, #3d1a5c, #5a2a7e);
+  --cell-flagged-border: rgba(138, 92, 192, 0.4);
+  --cell-mine-bg: #2a0a0a;
+
+  --num-1: #4fc3f7; --num-1-glow: rgba(79, 195, 247, 0.4);
+  --num-2: #81c784; --num-2-glow: rgba(129, 199, 132, 0.4);
+  --num-3: #e94560; --num-3-glow: rgba(233, 69, 96, 0.4);
+  --num-4: #7e57c2; --num-4-glow: rgba(126, 87, 194, 0.4);
+  --num-5: #ff7043; --num-5-glow: rgba(255, 112, 67, 0.4);
+  --num-6: #26c6da; --num-6-glow: rgba(38, 198, 218, 0.4);
+  --num-7: #ec407a; --num-7-glow: rgba(236, 64, 122, 0.4);
+  --num-8: #bdbdbd; --num-8-glow: rgba(189, 189, 189, 0.4);
+}
+
+.theme-classic .theme-btn { background: linear-gradient(135deg, #0f0f23, #1a1a3e, #16213e); }
+
+/* ===== 暗黑主题 ===== */
+.theme-dark {
+  --bg-1: #050505;
+  --bg-2: #0a0a0a;
+  --bg-3: #111111;
+  --bg-elevated: rgba(20, 20, 20, 0.8);
+  --bg-hover: rgba(255, 255, 255, 0.04);
+  --bg-input: rgba(10, 10, 10, 0.6);
+  --board-bg: rgba(8, 8, 8, 0.6);
+
+  --glass-bg: rgba(20, 20, 20, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.06);
+
+  --text-primary: #e8e8e8;
+  --text-secondary: #a0a0a0;
+  --text-muted: #555555;
+
+  --accent: #ff4444;
+  --accent-dim: rgba(255, 68, 68, 0.4);
+  --accent-subtle: rgba(255, 68, 68, 0.1);
+  --accent-gradient: linear-gradient(145deg, #ff4444, #cc3333);
+  --accent-glow: rgba(255, 68, 68, 0.25);
+
+  --success: #66bb6a;
+  --success-bg: rgba(102, 187, 106, 0.08);
+  --success-border: rgba(102, 187, 106, 0.2);
+  --danger: #ff4444;
+  --danger-bg: rgba(255, 68, 68, 0.08);
+  --danger-border: rgba(255, 68, 68, 0.2);
+  --danger-dim: rgba(255, 68, 68, 0.4);
+  --info: #42a5f5;
+  --info-bg: rgba(66, 165, 245, 0.08);
+  --info-border: rgba(66, 165, 245, 0.2);
+
+  --cell-hidden-bg: linear-gradient(145deg, #1a1a1a, #252525);
+  --cell-hidden-border: rgba(255, 255, 255, 0.06);
+  --cell-hover-bg: linear-gradient(145deg, #222222, #2a2a2a);
+  --cell-revealed-bg: #0a0a0a;
+  --cell-revealed-border: rgba(255, 255, 255, 0.03);
+  --cell-flagged-bg: linear-gradient(145deg, #2a1a2a, #3a2a3a);
+  --cell-flagged-border: rgba(150, 100, 150, 0.3);
+  --cell-mine-bg: #1a0505;
+
+  --num-1: #42a5f5; --num-1-glow: rgba(66, 165, 245, 0.4);
+  --num-2: #66bb6a; --num-2-glow: rgba(102, 187, 106, 0.4);
+  --num-3: #ff4444; --num-3-glow: rgba(255, 68, 68, 0.4);
+  --num-4: #ab47bc; --num-4-glow: rgba(171, 71, 188, 0.4);
+  --num-5: #ffa726; --num-5-glow: rgba(255, 167, 38, 0.4);
+  --num-6: #26c6da; --num-6-glow: rgba(38, 198, 218, 0.4);
+  --num-7: #ef5350; --num-7-glow: rgba(239, 83, 80, 0.4);
+  --num-8: #9e9e9e; --num-8-glow: rgba(158, 158, 158, 0.4);
+}
+
+.theme-dark .theme-btn { background: linear-gradient(135deg, #050505, #0a0a0a, #111111); }
+
+/* ===== 海洋主题 ===== */
+.theme-ocean {
+  --bg-1: #001529;
+  --bg-2: #002a4a;
+  --bg-3: #003a6a;
+  --bg-elevated: rgba(0, 30, 60, 0.8);
+  --bg-hover: rgba(255, 255, 255, 0.05);
+  --bg-input: rgba(0, 10, 30, 0.6);
+  --board-bg: rgba(0, 8, 25, 0.6);
+
+  --glass-bg: rgba(0, 30, 60, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.08);
+
+  --text-primary: #e0f0ff;
+  --text-secondary: #90b8d8;
+  --text-muted: #4a7a9a;
+
+  --accent: #00ccff;
+  --accent-dim: rgba(0, 204, 255, 0.4);
+  --accent-subtle: rgba(0, 204, 255, 0.12);
+  --accent-gradient: linear-gradient(145deg, #00ccff, #0099cc);
+  --accent-glow: rgba(0, 204, 255, 0.25);
+
+  --success: #66ffa6;
+  --success-bg: rgba(102, 255, 166, 0.08);
+  --success-border: rgba(102, 255, 166, 0.2);
+  --danger: #ff6b6b;
+  --danger-bg: rgba(255, 107, 107, 0.08);
+  --danger-border: rgba(255, 107, 107, 0.2);
+  --danger-dim: rgba(255, 107, 107, 0.4);
+  --info: #4dabf7;
+  --info-bg: rgba(77, 171, 247, 0.08);
+  --info-border: rgba(77, 171, 247, 0.2);
+
+  --cell-hidden-bg: linear-gradient(145deg, #003366, #004d99);
+  --cell-hidden-border: rgba(0, 150, 255, 0.15);
+  --cell-hover-bg: linear-gradient(145deg, #004080, #0055aa);
+  --cell-revealed-bg: #001529;
+  --cell-revealed-border: rgba(0, 150, 255, 0.06);
+  --cell-flagged-bg: linear-gradient(145deg, #1a3a5c, #2a4a8e);
+  --cell-flagged-border: rgba(100, 160, 220, 0.3);
+  --cell-mine-bg: #1a0505;
+
+  --num-1: #4dabf7; --num-1-glow: rgba(77, 171, 247, 0.4);
+  --num-2: #69db7c; --num-2-glow: rgba(105, 219, 124, 0.4);
+  --num-3: #ff6b6b; --num-3-glow: rgba(255, 107, 107, 0.4);
+  --num-4: #da77f2; --num-4-glow: rgba(218, 119, 242, 0.4);
+  --num-5: #ffa94d; --num-5-glow: rgba(255, 169, 77, 0.4);
+  --num-6: #22b8cf; --num-6-glow: rgba(34, 184, 207, 0.4);
+  --num-7: #ff8787; --num-7-glow: rgba(255, 135, 135, 0.4);
+  --num-8: #adb5bd; --num-8-glow: rgba(173, 181, 189, 0.4);
+}
+
+.theme-ocean .theme-btn { background: linear-gradient(135deg, #001529, #002a4a, #003a6a); }
+
+/* ===== 森林主题 ===== */
+.theme-forest {
+  --bg-1: #0a1a0a;
+  --bg-2: #122a12;
+  --bg-3: #1a3a1a;
+  --bg-elevated: rgba(18, 42, 18, 0.8);
+  --bg-hover: rgba(255, 255, 255, 0.04);
+  --bg-input: rgba(8, 20, 8, 0.6);
+  --board-bg: rgba(8, 18, 8, 0.6);
+
+  --glass-bg: rgba(18, 42, 18, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.06);
+
+  --text-primary: #e0ffe0;
+  --text-secondary: #a0c8a0;
+  --text-muted: #5a8a5a;
+
+  --accent: #44ff44;
+  --accent-dim: rgba(68, 255, 68, 0.4);
+  --accent-subtle: rgba(68, 255, 68, 0.12);
+  --accent-gradient: linear-gradient(145deg, #44ff44, #33cc33);
+  --accent-glow: rgba(68, 255, 68, 0.25);
+
+  --success: #88ff88;
+  --success-bg: rgba(136, 255, 136, 0.08);
+  --success-border: rgba(136, 255, 136, 0.2);
+  --danger: #ff5555;
+  --danger-bg: rgba(255, 85, 85, 0.08);
+  --danger-border: rgba(255, 85, 85, 0.2);
+  --danger-dim: rgba(255, 85, 85, 0.4);
+  --info: #66ccff;
+  --info-bg: rgba(102, 204, 255, 0.08);
+  --info-border: rgba(102, 204, 255, 0.2);
+
+  --cell-hidden-bg: linear-gradient(145deg, #1a2a1a, #2a3a2a);
+  --cell-hidden-border: rgba(100, 180, 100, 0.15);
+  --cell-hover-bg: linear-gradient(145deg, #1a3a1a, #2a4a2a);
+  --cell-revealed-bg: #0a1a0a;
+  --cell-revealed-border: rgba(100, 180, 100, 0.06);
+  --cell-flagged-bg: linear-gradient(145deg, #1a3a1a, #2a4a2a);
+  --cell-flagged-border: rgba(100, 180, 100, 0.3);
+  --cell-mine-bg: #1a0505;
+
+  --num-1: #66ccff; --num-1-glow: rgba(102, 204, 255, 0.4);
+  --num-2: #88ff88; --num-2-glow: rgba(136, 255, 136, 0.4);
+  --num-3: #ff5555; --num-3-glow: rgba(255, 85, 85, 0.4);
+  --num-4: #cc88ff; --num-4-glow: rgba(204, 136, 255, 0.4);
+  --num-5: #ffaa55; --num-5-glow: rgba(255, 170, 85, 0.4);
+  --num-6: #55dddd; --num-6-glow: rgba(85, 221, 221, 0.4);
+  --num-7: #ff77aa; --num-7-glow: rgba(255, 119, 170, 0.4);
+  --num-8: #aaaaaa; --num-8-glow: rgba(170, 170, 170, 0.4);
+}
+
+.theme-forest .theme-btn { background: linear-gradient(135deg, #0a1a0a, #122a12, #1a3a1a); }
+
+/* ===== 日落主题 ===== */
+.theme-sunset {
+  --bg-1: #1a0f0a;
+  --bg-2: #2a1a12;
+  --bg-3: #3a2a1a;
+  --bg-elevated: rgba(42, 26, 18, 0.8);
+  --bg-hover: rgba(255, 255, 255, 0.04);
+  --bg-input: rgba(20, 12, 8, 0.6);
+  --board-bg: rgba(18, 10, 6, 0.6);
+
+  --glass-bg: rgba(42, 26, 18, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.06);
+
+  --text-primary: #fff0e0;
+  --text-secondary: #d8b8a0;
+  --text-muted: #8a7060;
+
+  --accent: #ff8844;
+  --accent-dim: rgba(255, 136, 68, 0.4);
+  --accent-subtle: rgba(255, 136, 68, 0.12);
+  --accent-gradient: linear-gradient(145deg, #ff8844, #dd6633);
+  --accent-glow: rgba(255, 136, 68, 0.25);
+
+  --success: #88cc66;
+  --success-bg: rgba(136, 204, 102, 0.08);
+  --success-border: rgba(136, 204, 102, 0.2);
+  --danger: #ff5555;
+  --danger-bg: rgba(255, 85, 85, 0.08);
+  --danger-border: rgba(255, 85, 85, 0.2);
+  --danger-dim: rgba(255, 85, 85, 0.4);
+  --info: #66ccff;
+  --info-bg: rgba(102, 204, 255, 0.08);
+  --info-border: rgba(102, 204, 255, 0.2);
+
+  --cell-hidden-bg: linear-gradient(145deg, #3a2a1a, #4a3a2a);
+  --cell-hidden-border: rgba(200, 150, 100, 0.15);
+  --cell-hover-bg: linear-gradient(145deg, #4a3a2a, #5a4a3a);
+  --cell-revealed-bg: #1a0f0a;
+  --cell-revealed-border: rgba(200, 150, 100, 0.06);
+  --cell-flagged-bg: linear-gradient(145deg, #3a1a1a, #4a2a2a);
+  --cell-flagged-border: rgba(180, 100, 100, 0.3);
+  --cell-mine-bg: #1a0505;
+
+  --num-1: #66ccff; --num-1-glow: rgba(102, 204, 255, 0.4);
+  --num-2: #88cc66; --num-2-glow: rgba(136, 204, 102, 0.4);
+  --num-3: #ff5555; --num-3-glow: rgba(255, 85, 85, 0.4);
+  --num-4: #cc88ff; --num-4-glow: rgba(204, 136, 255, 0.4);
+  --num-5: #ffaa44; --num-5-glow: rgba(255, 170, 68, 0.4);
+  --num-6: #44cccc; --num-6-glow: rgba(68, 204, 204, 0.4);
+  --num-7: #ff77aa; --num-7-glow: rgba(255, 119, 170, 0.4);
+  --num-8: #bbbbbb; --num-8-glow: rgba(187, 187, 187, 0.4);
+}
+
+.theme-sunset .theme-btn { background: linear-gradient(135deg, #1a0f0a, #2a1a12, #3a2a1a); }
+
+/* ===== 紫色主题 ===== */
+.theme-purple {
+  --bg-1: #120a1a;
+  --bg-2: #1a0f2a;
+  --bg-3: #25153a;
+  --bg-elevated: rgba(26, 15, 42, 0.8);
+  --bg-hover: rgba(255, 255, 255, 0.04);
+  --bg-input: rgba(15, 8, 22, 0.6);
+  --board-bg: rgba(12, 6, 18, 0.6);
+
+  --glass-bg: rgba(26, 15, 42, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.06);
+
+  --text-primary: #f0e0ff;
+  --text-secondary: #c8a8e0;
+  --text-muted: #7a5a9a;
+
+  --accent: #cc44ff;
+  --accent-dim: rgba(204, 68, 255, 0.4);
+  --accent-subtle: rgba(204, 68, 255, 0.12);
+  --accent-gradient: linear-gradient(145deg, #cc44ff, #aa33dd);
+  --accent-glow: rgba(204, 68, 255, 0.25);
+
+  --success: #88ffaa;
+  --success-bg: rgba(136, 255, 170, 0.08);
+  --success-border: rgba(136, 255, 170, 0.2);
+  --danger: #ff5555;
+  --danger-bg: rgba(255, 85, 85, 0.08);
+  --danger-border: rgba(255, 85, 85, 0.2);
+  --danger-dim: rgba(255, 85, 85, 0.4);
+  --info: #66ccff;
+  --info-bg: rgba(102, 204, 255, 0.08);
+  --info-border: rgba(102, 204, 255, 0.2);
+
+  --cell-hidden-bg: linear-gradient(145deg, #2a1a3a, #3a2a4a);
+  --cell-hidden-border: rgba(160, 100, 220, 0.15);
+  --cell-hover-bg: linear-gradient(145deg, #3a1a4a, #4a2a5a);
+  --cell-revealed-bg: #120a1a;
+  --cell-revealed-border: rgba(160, 100, 220, 0.06);
+  --cell-flagged-bg: linear-gradient(145deg, #3a1a5c, #4a2a7e);
+  --cell-flagged-border: rgba(160, 100, 220, 0.3);
+  --cell-mine-bg: #1a0505;
+
+  --num-1: #66ccff; --num-1-glow: rgba(102, 204, 255, 0.4);
+  --num-2: #88ffaa; --num-2-glow: rgba(136, 255, 170, 0.4);
+  --num-3: #ff5555; --num-3-glow: rgba(255, 85, 85, 0.4);
+  --num-4: #cc88ff; --num-4-glow: rgba(204, 136, 255, 0.4);
+  --num-5: #ffaa55; --num-5-glow: rgba(255, 170, 85, 0.4);
+  --num-6: #55dddd; --num-6-glow: rgba(85, 221, 221, 0.4);
+  --num-7: #ff77cc; --num-7-glow: rgba(255, 119, 204, 0.4);
+  --num-8: #bbbbbb; --num-8-glow: rgba(187, 187, 187, 0.4);
+}
+
+.theme-purple .theme-btn { background: linear-gradient(135deg, #120a1a, #1a0f2a, #25153a); }

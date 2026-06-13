@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>扫雷 - 单元测试</title>
+  <style>
+    body {
+      font-family: 'Courier New', monospace;
+      background: #1a1a2e;
+      color: #eee;
+      padding: 20px;
+    }
+    h1 { color: #e94560; }
+    .test-pass { color: #4caf50; }
+    .test-fail { color: #f44336; }
+    .summary {
+      margin-top: 20px;
+      padding: 15px;
+      background: #16213e;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧪 扫雷增强版 - 单元测试</h1>
+  <div id="test-output"></div>
+  <div class="summary" id="summary"></div>
+
+  <script src="unit-tests.js"></script>
+  <script>
+    const output = document.getElementById('test-output');
+    const summary = document.getElementById('summary');
+
+    // 显示测试结果
+    testResults.tests.forEach(t => {
+      const div = document.createElement('div');
+      div.className = t.status === 'PASS' ? 'test-pass' : 'test-fail';
+      div.textContent = (t.status === 'PASS' ? '✅ ' : '❌ ') + t.name;
+      if (t.error) {
+        div.textContent += ' - ' + t.error;
+      }
+      output.appendChild(div);
+    });
+
+    summary.innerHTML = `
+      <h2>测试结果汇总</h2>
+      <p>通过: <span class="test-pass">${testResults.passed}</span></p>
+      <p>失败: <span class="test-fail">${testResults.failed}</span></p>
+      <p>总计: ${testResults.tests.length}</p>
+    `;
+  </script>
+</body>
+</html>
