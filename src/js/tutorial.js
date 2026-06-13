@@ -172,7 +172,6 @@ export const TutorialManager = {
         document.querySelector('.app-header')?.classList.add('tutorial-highlight');
         break;
       case 'startGame':
-        document.querySelector('.board-wrapper')?.classList.add('tutorial-highlight');
         break;
     }
   },

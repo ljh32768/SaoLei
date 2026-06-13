@@ -1118,17 +1118,14 @@ kbd {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.7);
-  z-index: 1000;
+  z-index: 10000;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .tutorial-panel {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -1138,7 +1135,6 @@ kbd {
   width: 90%;
   border: 1px solid var(--accent-dim);
   box-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 0 30px var(--accent-glow);
-  z-index: 1010;
   animation: panel-in 0.3s ease-out;
 }
 
@@ -1164,7 +1160,7 @@ kbd {
 
 .tutorial-highlight {
   position: relative;
-  z-index: 1001;
+  z-index: 10001;
   box-shadow: 0 0 0 4px var(--accent-dim), 0 0 20px var(--accent-glow) !important;
   animation: tutorial-pulse 1.2s ease-in-out infinite;
   border-radius: var(--radius-md);
