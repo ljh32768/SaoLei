@@ -4,9 +4,9 @@
 
 ```
 扫雷/
-├── index.html              # 主入口（模块化版本）
+├── index.html              # 主入口页面
 ├── src/
-│   ├── index.html          # 新的主页面
+│   ├── favicon.svg          # 网站图标
 │   ├── css/
 │   │   ├── base.css        # 基础样式
 │   │   ├── themes.css      # 主题系统（6种主题）
@@ -80,7 +80,7 @@
 
 ## 运行方式
 
-直接在浏览器中打开 `src/index.html` 即可。
+直接在浏览器中打开 `index.html` 即可。
 
 由于使用了 ES6 Modules，建议通过本地服务器运行：
 
@@ -92,7 +92,7 @@ python -m http.server 8000
 npx serve .
 ```
 
-然后访问 http://localhost:8000/src/
+然后访问 http://localhost:8000/
 
 ## 浏览器兼容性
 
