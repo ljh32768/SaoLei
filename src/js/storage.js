@@ -30,7 +30,15 @@ export function loadStats() {
     bestTime: { easy: null, medium: null, hard: null },
     combo: 0,
     totalMinesRevealed: 0,
-    powerupsUsed: 0
+    powerupsUsed: 0,
+    currentWinStreak: 0,
+    bestWinStreak: 0,
+    hasFlaglessMediumPlus: false,
+    hasHexHard: false,
+    hasSpeedNinja: false,
+    hasFirstClickWin: false,
+    totalPowerupsCollected: 0,
+    totalGameTimeSeconds: 0
   };
 }
 

@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 显示统计
   StatsManager.init(StorageManager);
   StatsManager.updateStatsDisplay();
+  StatsManager.bindAchievementFilters();
 
   // 初始化冒险地图
   AdventureManager.init(StorageManager);
@@ -667,6 +668,7 @@ function handlePowerupDrop() {
     audioManager.playSound('drop');
     BoardRenderer.updatePowerupBar(gameState);
     BoardRenderer.showMessage(`💎 获得 ${POWERUPS[dropped].name}！`, 'info');
+    StatsManager.recordPowerupCollect();
     setTimeout(() => BoardRenderer.clearMessage(), 2000);
   }
 }
@@ -727,7 +729,9 @@ function handleGameOver(r, c) {
     diffKey,
     gameState.maxCombo,
     gameState.powerupsUsed,
-    gameState.revealedCount
+    gameState.revealedCount,
+    gameState.flagCount,
+    gameState.hexMode
   );
 }
 
@@ -752,7 +756,9 @@ function handleWin() {
     diffKey,
     gameState.maxCombo,
     gameState.powerupsUsed,
-    gameState.revealedCount
+    gameState.revealedCount,
+    gameState.flagCount,
+    gameState.hexMode
   );
 
   newAchievements.forEach(id => {

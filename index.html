@@ -8,7 +8,8 @@
 <link rel="icon" type="image/svg+xml" href="src/favicon.svg">
 <link rel="stylesheet" href="src/css/base.css">
 <link rel="stylesheet" href="src/css/themes.css">
-<link rel="stylesheet" href="src/css/animations.css">
+  <link rel="stylesheet" href="src/css/animations.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 </head>
 <body class="theme-modern">
 
@@ -163,58 +164,80 @@
     <section class="panel" id="panel-stats" role="tabpanel">
       <div class="stats-panel card">
         <h2>📊 游戏统计</h2>
-        <div class="stats-grid">
-          <div class="stat-card">
-            <div class="stat-icon">🎮</div>
-            <div class="stat-value" id="statGames">0</div>
-            <div class="stat-label">总游戏数</div>
+        <div class="stats-chart-grid">
+          <div class="stats-cards">
+            <div class="stat-card">
+              <div class="stat-icon">🎮</div>
+              <div class="stat-value" id="statGames">0</div>
+              <div class="stat-label">总游戏数</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">🏆</div>
+              <div class="stat-value" id="statWins">0</div>
+              <div class="stat-label">胜利次数</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">📈</div>
+              <div class="stat-value" id="statWinRate">0%</div>
+              <div class="stat-label">胜率</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">⚡</div>
+              <div class="stat-value" id="statBestTime">-</div>
+              <div class="stat-label">最佳时间</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">🔥</div>
+              <div class="stat-value" id="statCombo">0</div>
+              <div class="stat-label">最高连击</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">⛏️</div>
+              <div class="stat-value" id="statMines">0</div>
+              <div class="stat-label">累计揭雷</div>
+            </div>
           </div>
-          <div class="stat-card">
-            <div class="stat-icon">🏆</div>
-            <div class="stat-value" id="statWins">0</div>
-            <div class="stat-label">胜利次数</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-icon">📈</div>
-            <div class="stat-value" id="statWinRate">0%</div>
-            <div class="stat-label">胜率</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-icon">⚡</div>
-            <div class="stat-value" id="statBestTime">-</div>
-            <div class="stat-label">最佳时间</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-icon">🔥</div>
-            <div class="stat-value" id="statCombo">0</div>
-            <div class="stat-label">最高连击</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-icon">⛏️</div>
-            <div class="stat-value" id="statMines">0</div>
-            <div class="stat-label">累计揭雷</div>
+          <div class="chart-area">
+            <div class="chart-container" id="winRateChartWrap">
+              <div class="chart-label">胜率分析</div>
+              <canvas id="winRateChart"></canvas>
+            </div>
           </div>
         </div>
       </div>
       <div class="stats-panel card">
         <h3>🏅 各难度最佳</h3>
-        <div class="stats-grid three">
-          <div class="stat-card">
-            <div class="stat-icon">🌱</div>
-            <div class="stat-value" id="bestEasy">-</div>
-            <div class="stat-label">初级</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-icon">🌿</div>
-            <div class="stat-value" id="bestMedium">-</div>
-            <div class="stat-label">中级</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-icon">🌳</div>
-            <div class="stat-value" id="bestHard">-</div>
-            <div class="stat-label">高级</div>
+        <div class="stats-chart-row">
+          <div class="stats-cards three">
+            <div class="stat-card">
+              <div class="stat-icon">🌱</div>
+              <div class="stat-value" id="bestEasy">-</div>
+              <div class="stat-label">初级</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">🌿</div>
+              <div class="stat-value" id="bestMedium">-</div>
+              <div class="stat-label">中级</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">🌳</div>
+              <div class="stat-value" id="bestHard">-</div>
+              <div class="stat-label">高级</div>
+            </div>
           </div>
         </div>
+      </div>
+      <div class="stats-panel card" id="achievementsPanel">
+        <div class="achievement-header">
+          <h2>🎖️ 成就展馆</h2>
+          <div class="achievement-stats" id="achievementSummary"></div>
+        </div>
+        <div class="achievement-filters">
+          <button class="achievement-filter-btn active" data-cat="all">全部</button>
+          <button class="achievement-filter-btn" data-cat="unlocked">已解锁</button>
+          <button class="achievement-filter-btn" data-cat="locked">未解锁</button>
+        </div>
+        <div class="achievement-grid" id="achievementGrid"></div>
       </div>
     </section>
 
