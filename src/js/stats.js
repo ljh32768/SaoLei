@@ -151,12 +151,14 @@ export const StatsManager = {
   initCharts(wins, losses) {
     const ctx = document.getElementById('winRateChart')?.getContext('2d');
     if (!ctx) return;
+    if (typeof Chart === 'undefined') return;
 
     const rootStyle = getComputedStyle(document.documentElement);
     const accent = rootStyle.getPropertyValue('--accent').trim() || '#58a6ff';
     const danger = rootStyle.getPropertyValue('--danger').trim() || '#e94560';
 
-    winRateChartInstance = new Chart(ctx, {
+    try {
+      winRateChartInstance = new Chart(ctx, {
       type: 'doughnut',
       data: {
         labels: ['胜利', '失败'],
@@ -205,6 +207,9 @@ export const StatsManager = {
         }
       }
     });
+    } catch (e) {
+      console.warn('图表初始化失败:', e);
+    }
   },
 
   renderEmptyChart() {
