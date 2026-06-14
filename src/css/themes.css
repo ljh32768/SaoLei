@@ -12,6 +12,11 @@
 
   --glass-bg: rgba(22, 27, 34, 0.65);
   --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-highlight: rgba(247, 120, 107, 0.3);
+
+  --bg-glow-1: rgba(247, 120, 107, 0.07);
+  --bg-glow-2: rgba(121, 192, 255, 0.05);
+  --bg-glow-3: rgba(86, 211, 100, 0.04);
 
   --text-primary: #f0f6fc;
   --text-secondary: #b0b8c4;
@@ -67,6 +72,11 @@
 
   --glass-bg: rgba(22, 33, 62, 0.65);
   --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-highlight: rgba(233, 69, 96, 0.3);
+
+  --bg-glow-1: rgba(233, 69, 96, 0.07);
+  --bg-glow-2: rgba(79, 195, 247, 0.05);
+  --bg-glow-3: rgba(129, 199, 132, 0.04);
 
   --text-primary: #e0e0f0;
   --text-secondary: #a0a8c0;
@@ -122,6 +132,11 @@
 
   --glass-bg: rgba(20, 20, 20, 0.7);
   --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-border-highlight: rgba(255, 68, 68, 0.3);
+
+  --bg-glow-1: rgba(255, 68, 68, 0.07);
+  --bg-glow-2: rgba(66, 165, 245, 0.05);
+  --bg-glow-3: rgba(102, 187, 106, 0.04);
 
   --text-primary: #e8e8e8;
   --text-secondary: #a0a0a0;
@@ -177,6 +192,11 @@
 
   --glass-bg: rgba(0, 30, 60, 0.65);
   --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-highlight: rgba(0, 204, 255, 0.3);
+
+  --bg-glow-1: rgba(0, 204, 255, 0.07);
+  --bg-glow-2: rgba(77, 171, 247, 0.05);
+  --bg-glow-3: rgba(102, 255, 166, 0.04);
 
   --text-primary: #e0f0ff;
   --text-secondary: #90b8d8;
@@ -232,6 +252,11 @@
 
   --glass-bg: rgba(18, 42, 18, 0.65);
   --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-border-highlight: rgba(68, 255, 68, 0.3);
+
+  --bg-glow-1: rgba(68, 255, 68, 0.07);
+  --bg-glow-2: rgba(102, 204, 255, 0.05);
+  --bg-glow-3: rgba(136, 255, 136, 0.04);
 
   --text-primary: #e0ffe0;
   --text-secondary: #a0c8a0;
@@ -287,6 +312,11 @@
 
   --glass-bg: rgba(42, 26, 18, 0.65);
   --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-border-highlight: rgba(255, 136, 68, 0.3);
+
+  --bg-glow-1: rgba(255, 136, 68, 0.07);
+  --bg-glow-2: rgba(102, 204, 255, 0.05);
+  --bg-glow-3: rgba(136, 204, 102, 0.04);
 
   --text-primary: #fff0e0;
   --text-secondary: #d8b8a0;
@@ -342,6 +372,11 @@
 
   --glass-bg: rgba(26, 15, 42, 0.65);
   --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-border-highlight: rgba(204, 68, 255, 0.3);
+
+  --bg-glow-1: rgba(204, 68, 255, 0.07);
+  --bg-glow-2: rgba(102, 204, 255, 0.05);
+  --bg-glow-3: rgba(136, 255, 170, 0.04);
 
   --text-primary: #f0e0ff;
   --text-secondary: #c8a8e0;

@@ -139,7 +139,7 @@ export const BoardRenderer = {
    */
   updateMineCount(count) {
     if (this.mineCountEl) {
-      this.mineCountEl.textContent = `💣 ${count}`;
+      this.mineCountEl.textContent = count;
     }
   },
 
@@ -149,7 +149,7 @@ export const BoardRenderer = {
    */
   updateTimer(seconds) {
     if (this.timerEl) {
-      this.timerEl.textContent = `⏱️ ${seconds}`;
+      this.timerEl.textContent = seconds;
     }
   },
 
@@ -159,7 +159,7 @@ export const BoardRenderer = {
    */
   updateComboDisplay(combo) {
     if (this.comboDisplayEl) {
-      this.comboDisplayEl.textContent = combo > 0 ? `🔥 连击 x${combo}!` : '';
+      this.comboDisplayEl.textContent = combo > 0 ? `x${combo}` : '0';
       if (combo > 0) {
         this.comboDisplayEl.classList.add('combo-pop');
         setTimeout(() => this.comboDisplayEl.classList.remove('combo-pop'), 300);
