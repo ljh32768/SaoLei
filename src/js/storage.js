@@ -148,7 +148,7 @@ export function loadSettings() {
     sound: true,
     particles: true,
     autoFlag: false,
-    theme: 'modern',
+    theme: 'anthropic',
     volume: 50,
     tutorialCompleted: false
   };

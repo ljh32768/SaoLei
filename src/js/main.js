@@ -922,6 +922,7 @@ function initThemeSelector() {
   if (!elements.themeSelector) return;
 
   const themes = [
+    { key: 'anthropic', color: '#FAF9F5' },
     { key: 'modern', color: '#0d1117' },
     { key: 'classic', color: '#1a1a2e' },
     { key: 'dark', color: '#0a0a0a' },
@@ -950,7 +951,7 @@ function initThemeSelector() {
  * 应用主题
  */
 function applyTheme(themeName) {
-  document.body.classList.remove('theme-modern', 'theme-classic', 'theme-dark', 'theme-ocean',
+  document.body.classList.remove('theme-anthropic', 'theme-modern', 'theme-classic', 'theme-dark', 'theme-ocean',
     'theme-forest', 'theme-sunset', 'theme-purple');
   document.body.classList.add(`theme-${themeName}`);
   settings.theme = themeName;

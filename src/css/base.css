@@ -2,11 +2,12 @@
 
 /* ===== 设计系统变量 ===== */
 :root {
-  --font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-mono: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', monospace;
+  --font-sans: 'Anthropic Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-family: 'Anthropic Serif', Georgia, 'Times New Roman', Times, serif;
+  --font-mono: 'Anthropic Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', monospace;
 
-  --radius-sm: 6px;
-  --radius-md: 10px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
   --radius-lg: 16px;
   --radius-xl: 24px;
   --radius-full: 9999px;
@@ -54,6 +55,20 @@ body {
   background: var(--bg-1);
   overflow-x: hidden;
   position: relative;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6,
+.brand,
+.btn,
+.nav-tab,
+.info-label,
+.stat-label,
+.toggle-text,
+.achievement-filter-btn,
+.achievement-card-name {
+  font-family: var(--font-sans);
 }
 
 body::before {
@@ -76,7 +91,7 @@ body::after {
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
   background-size: 200px;
-  opacity: 0.5;
+  opacity: 0.15;
   z-index: -1;
   pointer-events: none;
 }
@@ -147,7 +162,7 @@ body::after {
 
 .brand-text {
   font-size: 1.3em;
-  letter-spacing: 3px;
+  letter-spacing: 1px;
   color: var(--text-primary);
   font-weight: 800;
 }
@@ -189,7 +204,7 @@ body::after {
 
 .nav-tab:hover {
   color: var(--text-secondary);
-  background: rgba(255,255,255,0.04);
+  background: var(--bg-hover);
 }
 
 .nav-tab.active {
@@ -373,7 +388,7 @@ body::after {
   border-radius: var(--radius-md);
   font-size: 0.88em;
   font-weight: 600;
-  font-family: var(--font-family);
+  font-family: var(--font-sans);
   cursor: pointer;
   transition: all var(--transition-base);
   white-space: nowrap;
@@ -433,19 +448,19 @@ body::after {
 
 .btn-ghost:hover {
   color: var(--text-secondary);
-  background: rgba(255,255,255,0.04);
+  background: var(--bg-hover);
   border-color: var(--glass-border);
 }
 
 .btn-danger {
-  background: linear-gradient(145deg, #e94560, #c0392b);
+  background: var(--danger);
   color: white;
-  box-shadow: 0 4px 16px rgba(233, 69, 96, 0.3), var(--shadow-sm);
+  box-shadow: 0 4px 16px var(--danger-dim), var(--shadow-sm);
 }
 
 .btn-danger:hover {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 8px 24px rgba(233, 69, 96, 0.4), var(--shadow-md);
+  box-shadow: 0 8px 24px var(--danger-dim), var(--shadow-md);
 }
 
 .btn-danger:active {
@@ -493,7 +508,7 @@ body::after {
   border-radius: var(--radius-md);
   padding: 10px 36px 10px 16px;
   font-size: 0.88em;
-  font-family: var(--font-family);
+  font-family: var(--font-sans);
   font-weight: 500;
   cursor: pointer;
   transition: all var(--transition-base);
@@ -762,15 +777,15 @@ body::after {
 
 .cell.wrong-flag {
   border-color: var(--danger) !important;
-  background: linear-gradient(145deg, rgba(233,69,96,0.15), var(--cell-flagged-bg)) !important;
-  box-shadow: 0 0 8px rgba(233, 69, 96, 0.3);
+  background: linear-gradient(145deg, var(--danger-bg), var(--cell-flagged-bg)) !important;
+  box-shadow: 0 0 8px var(--danger-dim);
 }
 
 .cell.mine-trigger {
   background: var(--danger);
   border: 1px solid var(--danger);
   animation: mine-explode 0.4s ease-out;
-  box-shadow: 0 0 24px rgba(233, 69, 96, 0.5);
+  box-shadow: 0 0 24px var(--danger-dim);
 }
 
 .cell.mine-show {
@@ -779,9 +794,9 @@ body::after {
 }
 
 .cell.shield-blocked {
-  background: linear-gradient(145deg, rgba(79,195,247,0.15), var(--cell-revealed-bg));
+  background: linear-gradient(145deg, var(--info-bg), var(--cell-revealed-bg));
   border: 2px solid var(--info);
-  box-shadow: 0 0 16px rgba(79, 195, 247, 0.3);
+  box-shadow: 0 0 16px var(--info-border);
 }
 
 .cell.hint {
@@ -908,9 +923,9 @@ kbd {
 }
 
 .adventure-node.completed {
-  background: linear-gradient(145deg, rgba(129,199,132,0.15), var(--glass-bg));
+  background: linear-gradient(145deg, var(--success-bg), var(--glass-bg));
   border-color: var(--success);
-  box-shadow: 0 0 12px rgba(129, 199, 132, 0.2);
+  box-shadow: 0 0 12px var(--success-border);
 }
 
 .adventure-node.current {
@@ -920,7 +935,7 @@ kbd {
 }
 
 .adventure-node.boss {
-  background: linear-gradient(145deg, rgba(233,69,96,0.15), var(--glass-bg));
+  background: linear-gradient(145deg, var(--danger-bg), var(--glass-bg));
   border-color: var(--danger-dim);
   font-size: 2em;
 }
@@ -965,7 +980,7 @@ kbd {
 
 .daily-challenge.completed {
   border-color: var(--success);
-  background: linear-gradient(145deg, rgba(129,199,132,0.08), var(--glass-bg));
+  background: linear-gradient(145deg, var(--success-bg), var(--glass-bg));
 }
 
 /* ===== 统计面板 ===== */
@@ -1115,7 +1130,7 @@ kbd {
 }
 
 .toggle-row:hover {
-  background: rgba(255,255,255,0.03);
+  background: var(--bg-hover);
   border-color: var(--glass-border);
 }
 
@@ -1405,7 +1420,7 @@ kbd {
   cursor: pointer;
   font-size: 0.88em;
   font-weight: 600;
-  font-family: var(--font-family);
+  font-family: var(--font-sans);
   transition: all var(--transition-base);
   letter-spacing: 0.3px;
 }
@@ -1609,7 +1624,7 @@ kbd {
   color: var(--text-muted);
   font-size: 0.82em;
   font-weight: 500;
-  font-family: var(--font-family);
+  font-family: var(--font-sans);
   cursor: pointer;
   transition: all var(--transition-base);
   letter-spacing: 0.3px;
@@ -1618,7 +1633,7 @@ kbd {
 .achievement-filter-btn:hover {
   color: var(--text-secondary);
   border-color: var(--accent-dim);
-  background: rgba(255,255,255,0.03);
+  background: var(--bg-hover);
 }
 
 .achievement-filter-btn.active {
@@ -1654,8 +1669,8 @@ kbd {
 }
 
 .achievement-card.unlocked {
-  border-color: var(--success-dim);
-  background: linear-gradient(145deg, rgba(129,199,132,0.06), var(--bg-elevated));
+  border-color: var(--success-border);
+  background: linear-gradient(145deg, var(--success-bg), var(--bg-elevated));
 }
 
 .achievement-card.unlocked::before {
@@ -1740,12 +1755,12 @@ kbd {
 }
 
 .achievement-card-badge.unlocked-badge {
-  background: rgba(129, 199, 132, 0.15);
+  background: var(--success-bg);
   color: var(--success);
 }
 
 .achievement-card-badge.locked-badge {
-  background: rgba(138, 144, 152, 0.1);
+  background: var(--bg-hover);
   color: var(--text-muted);
 }
 
